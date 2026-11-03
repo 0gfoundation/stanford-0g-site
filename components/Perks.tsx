@@ -37,6 +37,14 @@ const COHORT2_PERKS: Perk[] = [
     qualifier: "all packages",
     headline: "PR packages from Luna PR",
   },
+  {
+    partner: "Gaea Ventures",
+    index: "03",
+    logo: "/gaea-ventures.png",
+    value: "20% off",
+    qualifier: "all packages",
+    headline: "Packages from Gaea Ventures",
+  },
 ];
 
 const PERKS: Perk[] = [

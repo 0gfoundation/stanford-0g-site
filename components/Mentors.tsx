@@ -199,6 +199,14 @@ const mentors: Mentor[] = [
       linkedin: "https://www.linkedin.com/in/alexpack/",
     },
   },
+  {
+    name: "Jonathan King",
+    position: "Head of Investments at Coinbase Ventures",
+    image: "/jonathan-king.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/jonathanryanking/",
+    },
+  },
 ];
 
 export default function Mentors() {
