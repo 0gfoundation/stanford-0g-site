@@ -200,6 +200,22 @@ const mentors: Mentor[] = [
     },
   },
   {
+    name: "Dan Escow",
+    position: "Founder · Talent Engineer",
+    image: "/dan-escow.jpeg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/danuptop/",
+    },
+  },
+  {
+    name: "Margaret McCarthy",
+    position: "GTM at Anthropic",
+    image: "/margaret-mccarthy.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/margaret-mccarthy-70119255/",
+    },
+  },
+  {
     name: "Jonathan King",
     position: "Head of Investments at Coinbase Ventures",
     image: "/jonathan-king.jpg",
