@@ -25,12 +25,12 @@ export default function Timeline() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            4-Month <span className="text-gradient">Journey</span>
+            3-Month <span className="text-gradient">Journey</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            Four months end to end. Eight weeks of structured programming either
-            side of a December build sprint, with Demo Day in the final week of
-            the January–February block.
+            Three months, December through February. Four weeks of structured
+            programming either side of a January build sprint, with Demo Day in
+            the final week of February.
           </p>
         </motion.div>
 
