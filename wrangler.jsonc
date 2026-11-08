@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "apollo-0g-site",
+  "compatibility_date": "2026-11-01",
+  // Only the videos go through worker.js (byte-range support for Safari).
+  "main": "worker.js",
+  // Static site: `next build` writes the export to ./out.
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/apollo-cohort-2-intro.mp4", "/cohort1/*"]
+  }
+}

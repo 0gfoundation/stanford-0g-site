@@ -55,7 +55,7 @@ export const BUILD_CATEGORIES = [
 export const PROGRAM_PHASES = [
   {
     label: "Month 1",
-    period: "November",
+    period: "December",
     duration: "4 weeks",
     modules: [
       { number: "01", title: "Overview & Plan" },
@@ -66,14 +66,14 @@ export const PROGRAM_PHASES = [
   },
   {
     label: "Month 2",
-    period: "December → mid-January",
+    period: "January",
     sprint: true,
     description:
-      "Focused build against OKRs. Two weeks of team check-ins, no scheduled content, programming picks up again in January.",
+      "Focused build against OKRs. Two weeks of team check-ins, no scheduled content, programming picks up again in February.",
   },
   {
     label: "Month 3",
-    period: "January – February",
+    period: "February",
     duration: "4 weeks",
     modules: [
       { number: "05", title: "Go-to-Market" },

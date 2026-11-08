@@ -33,3 +33,7 @@ info.md
 
 # Waitlist email captures (local dev)
 /data/
+
+# cloudflare
+/out/
+.wrangler/
