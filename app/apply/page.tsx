@@ -7,7 +7,7 @@ import TallyEmbed from "@/components/TallyEmbed";
 export const metadata: Metadata = {
   title: "Apply to Apollo Cohort II - 0G Apollo Program",
   description:
-    "Apply to Apollo Cohort II, the four-month AI accelerator from xBuilders and 0G. Up to 10 teams, November through February, in-person graduation on Stanford campus.",
+    "Apply to Apollo Cohort II, the three-month AI accelerator from xBuilders and 0G. Up to 10 teams, December through February, in-person graduation on Stanford campus.",
   alternates: { canonical: "https://apollo.0g.ai/apply" },
 };
 

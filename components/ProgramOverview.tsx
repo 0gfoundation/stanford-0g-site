@@ -39,9 +39,9 @@ export default function ProgramOverview() {
               including the Stanford community.
             </p>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Cohort 2 will be a four-month accelerator for up to 10 startups
-              building on the 0G AI infrastructure, running November through February
-              with a December build sprint, and closing with an in-person
+              Cohort 2 will be a three-month accelerator for up to 10 startups
+              building on the 0G AI infrastructure, running December through
+              February, and closing with an in-person
               graduation on Stanford campus.
             </p>
 
