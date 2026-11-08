@@ -16,7 +16,7 @@ interface Perk {
   steps?: string[];
 }
 
-const COHORT2_PERKS: Perk[] = [
+const PARTNER_PERKS: Perk[] = [
   {
     partner: "Hashlock",
     index: "01",
@@ -51,18 +51,15 @@ const COHORT2_PERKS: Perk[] = [
     logo: "/quillaudits.png",
     value: "$20,000",
     qualifier: "in credits",
-    headline: "Security credits from QuillAudits",
+    headline: "Security audits at cohort pricing",
     points: [
       "$15,000 in QuillAudits credits",
       "$5,000 in QuillShield credits",
     ],
   },
-];
-
-const PERKS: Perk[] = [
   {
     partner: "QuickNode",
-    index: "01",
+    index: "05",
     logo: "/quicknode.jpg",
     value: "$5,000",
     qualifier: "in QuickNode credits · over 6 months",
@@ -74,7 +71,7 @@ const PERKS: Perk[] = [
   },
   {
     partner: "CertiK",
-    index: "02",
+    index: "06",
     logo: "/certik.png",
     value: "20% off",
     qualifier: "on audits, pen tests & KYC",
@@ -86,7 +83,7 @@ const PERKS: Perk[] = [
   },
   {
     partner: "Octane",
-    index: "03",
+    index: "07",
     logo: "/octane.avif",
     value: "Free",
     qualifier: "AI-native security analysis",
@@ -341,8 +338,8 @@ export default function Perks() {
             Exclusive Perks for <span className="text-gradient">Apollo Teams</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            What our partners offer Cohort 2, what they gave Cohort 1, and what
-            Cohort 1 founders now offer the next cohort.
+            What our partners offer Apollo teams, and what Cohort 1 founders
+            now offer the next cohort.
           </p>
           <div className="mt-6 flex justify-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gradient-border text-sm font-medium text-brand-purple-500">
@@ -353,20 +350,15 @@ export default function Perks() {
           </div>
         </motion.div>
 
-        {/* Cohort 2 partner perks */}
-        <GroupHeading
-          title="Cohort 2 partner perks"
-          subtitle="Confirmed so far for Cohort 2 teams. More partner perks unlock at kickoff."
-          isInView={isInView}
-          delay={0.1}
-        />
+        {/* Partner perks */}
+        <GroupHeading title="Partner perks" isInView={isInView} delay={0.1} />
         <div className="flex flex-col gap-6">
-          {COHORT2_PERKS.map((perk, index) => (
+          {PARTNER_PERKS.map((perk, index) => (
             <PerkCard
               key={perk.partner}
               perk={perk}
               isInView={isInView}
-              delay={index * 0.12}
+              delay={index * 0.1}
             />
           ))}
 
@@ -385,26 +377,6 @@ export default function Perks() {
               infrastructure.
             </span>
           </motion.div>
-        </div>
-
-        {/* Cohort 1 partner perks */}
-        <div className="mt-20">
-          <GroupHeading
-            title="Cohort 1 perks"
-            subtitle="Offered to Cohort 1 teams by our partners."
-            isInView={isInView}
-            delay={0.2}
-          />
-          <div className="flex flex-col gap-6">
-            {PERKS.map((perk, index) => (
-              <PerkCard
-                key={perk.partner}
-                perk={perk}
-                isInView={isInView}
-                delay={0.2 + index * 0.12}
-              />
-            ))}
-          </div>
         </div>
 
         {/* Alumni perks */}

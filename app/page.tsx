@@ -7,6 +7,7 @@ import Perks from "@/components/Perks";
 import Timeline from "@/components/Timeline";
 import Mentors from "@/components/Mentors";
 import Projects from "@/components/Projects";
+import CaseStudies from "@/components/CaseStudies";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -20,6 +21,7 @@ export default function Home() {
       <ProgramOverview />
       <CohortHighlights />
       <Projects />
+      <CaseStudies />
       <Perks />
       <Mentors />
       <FAQ />
