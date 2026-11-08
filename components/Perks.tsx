@@ -45,6 +45,18 @@ const COHORT2_PERKS: Perk[] = [
     qualifier: "all packages",
     headline: "Packages from Gaea Ventures",
   },
+  {
+    partner: "QuillAudits",
+    index: "04",
+    logo: "/quillaudits.png",
+    value: "$20,000",
+    qualifier: "in credits",
+    headline: "Security credits from QuillAudits",
+    points: [
+      "$15,000 in QuillAudits credits",
+      "$5,000 in QuillShield credits",
+    ],
+  },
 ];
 
 const PERKS: Perk[] = [

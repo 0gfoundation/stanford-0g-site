@@ -45,7 +45,7 @@ const FAQ_DATA: FAQEntry[] = [
   {
     question: "What are the requirements to apply?",
     answer:
-      "Teams actively building AI projects with a clear path to revenue and a validated need and market, and available for the 4-month program.",
+      "Teams actively building AI projects with a clear path to revenue and a validated need and market, and available for the 3-month program.",
   },
   {
     question: "Do we have to be exclusive to the 0G network?",
@@ -55,7 +55,7 @@ const FAQ_DATA: FAQEntry[] = [
   {
     question: "Is the program remote?",
     answer:
-      "The 4-month program is primarily remote, except for an in-person graduation at Stanford towards the end of the program.",
+      "The 3-month program is primarily remote, except for an in-person graduation at Stanford towards the end of the program.",
   },
   {
     question: "What is the application deadline?",
@@ -65,7 +65,7 @@ const FAQ_DATA: FAQEntry[] = [
   {
     question: "When does Cohort 2 start?",
     answer:
-      "Cohort 2 kicks off in November 2026 — the exact date is to be confirmed.",
+      "Cohort 2 kicks off in December 2026 — the exact date is to be confirmed.",
   },
   {
     question: "Are applications open?",

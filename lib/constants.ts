@@ -25,7 +25,7 @@ export const NAV_LINKS = [
 export const PROGRAM_STATS = [
   { value: "10", label: "Teams Selected" },
   { value: "$2M", prefix: "Up to", label: "Investment Per Project" },
-  { value: "4", label: "Month Program" },
+  { value: "3", label: "Month Program" },
   { value: "1", label: "Demo Day" },
 ];
 
@@ -132,7 +132,7 @@ export const APPLY_CRITERIA = [
   "Building on or planning to build on 0G AI infrastructure",
   "Have a working MVP or strong prototype",
   "Committed founding team (2+ members)",
-  "Available for the full 4-month program",
+  "Available for the full 3-month program",
 ];
 
 export const DEMO_DAY_RECORDING_URL = "https://youtu.be/cGtOOdPvSaQ";
