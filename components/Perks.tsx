@@ -58,20 +58,8 @@ const PARTNER_PERKS: Perk[] = [
     ],
   },
   {
-    partner: "QuickNode",
-    index: "05",
-    logo: "/quicknode.jpg",
-    value: "$5,000",
-    qualifier: "in QuickNode credits · over 6 months",
-    headline: "Infrastructure credits to scale your nodes",
-    points: [
-      "Globally distributed RPC nodes with low-latency reads",
-      "Full dev toolkit: Webhooks, Streams & SQL Explorer",
-    ],
-  },
-  {
     partner: "CertiK",
-    index: "06",
+    index: "05",
     logo: "/certik.png",
     value: "20% off",
     qualifier: "on audits, pen tests & KYC",
@@ -79,25 +67,6 @@ const PARTNER_PERKS: Perk[] = [
     points: [
       "Fast-tracked priority audit & pen-test slots",
       "Mention you're in the Apollo cohort for a direct line to CertiK BD",
-    ],
-  },
-  {
-    partner: "Octane",
-    index: "07",
-    logo: "/octane.avif",
-    value: "Free",
-    qualifier: "AI-native security analysis",
-    headline: '"Clear to Launch" pre-launch security analysis',
-    points: [
-      "One-time analysis across contracts, app logic, APIs, offchain services & dependencies",
-      "AI discovery + expert researcher validation → confirmed issues + remediation",
-    ],
-    steps: [
-      "Scope",
-      "Analysis",
-      "Validation",
-      "Readout",
-      "Fix priorities",
     ],
   },
 ];
@@ -272,7 +241,7 @@ function PerkCard({
             </ul>
           )}
 
-          {/* Octane-only program flow stepper */}
+          {/* Optional program flow stepper */}
           {perk.steps && (
             <div className="flex items-start mt-6">
               {perk.steps.map((step, i) => (

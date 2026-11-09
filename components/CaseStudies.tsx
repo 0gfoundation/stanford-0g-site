@@ -1,12 +1,14 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import {
   ArrowUpRight,
   Bot,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Clapperboard,
   Cpu,
   ShieldCheck,
@@ -35,6 +37,8 @@ interface CaseStudy {
   website: string;
   usesZeroGFor: string;
   body: string;
+  // Optional badge, e.g. the Apollo cohort a team came from.
+  label?: string;
   flow: FlowStep[];
   routes?: ModelRoute[];
   highlights?: string[];
@@ -48,6 +52,7 @@ const CASE_STUDIES: CaseStudy[] = [
     website: "https://pulsar.money",
     usesZeroGFor: "The AI assistant inside their app",
     body: "Every Pulsar Money user has an in-app assistant that handles notifications, analytics, and actions like transfers and payments. That assistant runs on 0G Private Computer.",
+    label: "Apollo Cohort 1",
     flow: [
       { label: "Pulsar Money user", detail: "Every user gets the assistant", icon: UserRound },
       {
@@ -83,6 +88,7 @@ const CASE_STUDIES: CaseStudy[] = [
     website: "https://uvlabs.ai",
     usesZeroGFor: "On-demand video generation",
     body: "Mosh creators need fast, reliable video generation directly within their workflow. UV Labs leverages 0G Private Computer to deliver instant, on-demand video creation, priced efficiently per clip. By offloading this heavy workload to specialized 0G compute, they bypass the bottlenecks of standard inference, giving creators seamless, high-performance generation exactly when they need it.",
+    label: "Apollo Cohort 1",
     flow: [
       { label: "Mosh creator", detail: "Asks for a clip inside their workflow", icon: UserRound },
       {
@@ -228,26 +234,11 @@ function HowItRuns({ study }: { study: CaseStudy }) {
   );
 }
 
-function CaseStudyCard({
-  study,
-  index,
-  isInView,
-}: {
-  study: CaseStudy;
-  index: number;
-  isInView: boolean;
-}) {
+function CaseStudyCard({ study }: { study: CaseStudy }) {
   const host = new URL(study.website).host;
-  // Alternate the side the dark panel sits on, so the two cards don't read as copies.
-  const panelFirst = index % 2 === 1;
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.15 + index * 0.15 }}
-      className="glass rounded-[2rem] overflow-hidden grid lg:grid-cols-2"
-    >
+    <article className="glass rounded-[2rem] overflow-hidden grid lg:grid-cols-2 lg:min-h-[560px]">
       <div className="p-7 sm:p-10 lg:p-12 flex flex-col">
         <div className="flex items-center gap-4">
           <Image
@@ -284,22 +275,67 @@ function CaseStudyCard({
               className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
             />
           </a>
-          <span className="text-xs font-medium rounded-full px-3 py-1 bg-brand-purple-500/10 text-brand-purple-500">
-            Apollo Cohort 1
-          </span>
+          {study.label && (
+            <span className="text-xs font-medium rounded-full px-3 py-1 bg-brand-purple-500/10 text-brand-purple-500">
+              {study.label}
+            </span>
+          )}
         </div>
       </div>
 
-      <div className={panelFirst ? "lg:order-first" : undefined}>
-        <HowItRuns study={study} />
-      </div>
-    </motion.article>
+      <HowItRuns study={study} />
+    </article>
+  );
+}
+
+function ArrowButton({
+  direction,
+  onClick,
+}: {
+  direction: "previous" | "next";
+  onClick: () => void;
+}) {
+  const Icon = direction === "previous" ? ChevronLeft : ChevronRight;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={`${direction === "previous" ? "Previous" : "Next"} case study`}
+      className="hidden sm:flex w-10 h-10 flex-shrink-0 items-center justify-center rounded-full border border-brand-purple-300/60 bg-white/70 text-gray-700 hover:border-brand-purple-400 hover:text-brand-purple-500 transition-colors"
+    >
+      <Icon size={18} />
+    </button>
   );
 }
 
 export default function CaseStudies() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [active, setActive] = useState(0);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const study = CASE_STUDIES[active];
+
+  // Wraps around, so the arrows keep cycling however many studies there are.
+  const select = (i: number, focus = false) => {
+    const next = (i + CASE_STUDIES.length) % CASE_STUDIES.length;
+    setActive(next);
+    const tab = tabRefs.current[next];
+    tab?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    if (focus) tab?.focus();
+  };
+
+  const onTabKeyDown = (e: KeyboardEvent) => {
+    const keys: Record<string, number> = {
+      ArrowRight: active + 1,
+      ArrowLeft: active - 1,
+      Home: 0,
+      End: CASE_STUDIES.length - 1,
+    };
+    if (e.key in keys) {
+      e.preventDefault();
+      select(keys[e.key], true);
+    }
+  };
 
   return (
     <section id="built-on-0g" className="py-32 relative overflow-hidden" ref={ref}>
@@ -309,7 +345,7 @@ export default function CaseStudies() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gradient-border text-sm font-medium text-brand-purple-500 mb-5">
             Ecosystem case studies
@@ -323,11 +359,79 @@ export default function CaseStudies() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-8">
-          {CASE_STUDIES.map((study, index) => (
-            <CaseStudyCard key={study.name} study={study} index={index} isInView={isInView} />
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          {/* One tab per study; the row scrolls sideways once it outgrows the screen */}
+          <div className="flex items-center gap-3 mb-6">
+            <ArrowButton direction="previous" onClick={() => select(active - 1)} />
+            <div className="flex-1 min-w-0 overflow-x-auto scrollbar-hide -mx-6 px-6 sm:mx-0 sm:px-0">
+              <div
+                role="tablist"
+                aria-label="Case studies"
+                onKeyDown={onTabKeyDown}
+                className="flex gap-2 w-max mx-auto py-1"
+              >
+                {CASE_STUDIES.map((s, i) => {
+                  const selected = i === active;
+                  return (
+                    <button
+                      key={s.name}
+                      ref={(el) => {
+                        tabRefs.current[i] = el;
+                      }}
+                      type="button"
+                      role="tab"
+                      id={`case-tab-${i}`}
+                      aria-selected={selected}
+                      aria-controls="case-panel"
+                      tabIndex={selected ? 0 : -1}
+                      onClick={() => select(i)}
+                      className={`inline-flex items-center gap-2.5 rounded-full py-1.5 pl-1.5 pr-4 text-sm font-medium border transition-all whitespace-nowrap ${
+                        selected
+                          ? "bg-white border-brand-purple-400 text-gray-900 shadow-[0_6px_20px_-6px_rgba(146,0,225,0.35)]"
+                          : "bg-white/50 border-gray-200 text-gray-500 hover:text-gray-800 hover:border-brand-purple-300"
+                      }`}
+                    >
+                      <Image
+                        src={s.logo}
+                        alt=""
+                        width={28}
+                        height={28}
+                        className={`w-7 h-7 rounded-full object-cover transition ${
+                          selected ? "" : "grayscale opacity-70"
+                        }`}
+                      />
+                      {s.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <ArrowButton direction="next" onClick={() => select(active + 1)} />
+          </div>
+
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={study.name}
+              role="tabpanel"
+              id="case-panel"
+              aria-labelledby={`case-tab-${active}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25 }}
+            >
+              <CaseStudyCard study={study} />
+            </motion.div>
+          </AnimatePresence>
+
+          <p className="mt-5 text-center text-sm text-gray-400 font-mono">
+            {String(active + 1).padStart(2, "0")} / {String(CASE_STUDIES.length).padStart(2, "0")}
+          </p>
+        </motion.div>
       </div>
     </section>
   );
