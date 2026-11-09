@@ -62,11 +62,12 @@ const PARTNER_PERKS: Perk[] = [
     index: "05",
     logo: "/certik.png",
     value: "20% off",
-    qualifier: "on audits, pen tests & KYC",
-    headline: "Audits, pen tests & KYC at cohort pricing",
+    qualifier: "on all CertiK services",
+    headline: "Audits, pen tests, compliance, AML & KYC at cohort pricing",
     points: [
       "Fast-tracked priority audit & pen-test slots",
-      "Mention you're in the Apollo cohort for a direct line to CertiK BD",
+      "Dedicated support from CertiK's partner customer success team",
+      "Access to CertiK's Institution Resource Club",
     ],
   },
 ];
