@@ -223,6 +223,14 @@ const mentors: Mentor[] = [
       linkedin: "https://www.linkedin.com/in/jonathanryanking/",
     },
   },
+  {
+    name: "Ali Maaz",
+    position: "Head of WW Agentic AI GTM at AWS · Kiro, Q Developer, Strands & Bedrock AgentCore",
+    image: "/ali-maaz.jpeg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/alimaaz/",
+    },
+  },
 ];
 
 export default function Mentors() {
