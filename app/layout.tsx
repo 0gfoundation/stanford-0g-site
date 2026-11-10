@@ -52,6 +52,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        {/* Google tag (GTM-5FGP4MT5), placed first in <head> as Google asks */}
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5FGP4MT5" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());",
+          }}
+        />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="font-sans antialiased">
