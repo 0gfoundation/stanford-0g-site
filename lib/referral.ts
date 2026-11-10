@@ -1,7 +1,10 @@
 // Alumni referral codes (e.g. apollo.0g.ai/apply?ref=WALNUTAI).
 // The first valid code a founder arrives with is kept for 90 days in
 // localStorage, with a first-party cookie as fallback, and sent to the Tally
-// form's `ref` hidden field. Unknown codes are ignored.
+// form's `ref` hidden field. Unknown codes are ignored. Every arrival with a
+// `ref` is also reported to GA4 as `referral_visit`, valid or not, so typos show up.
+
+import { track } from "@/lib/analytics";
 
 export const REF_CODES = new Set([
   "FLOELABS",
@@ -26,7 +29,8 @@ export function normalizeRef(value: string | null): string | null {
   return REF_CODES.has(code) ? code : null;
 }
 
-function readStoredRef(): string | null {
+/** The referral code this visitor arrived with, if still valid. */
+export function readStoredRef(): string | null {
   try {
     const raw = window.localStorage.getItem(REF_KEY);
     if (raw) {
@@ -47,8 +51,17 @@ function readStoredRef(): string | null {
  */
 export function captureReferral(): string | null {
   const url = new URL(window.location.href);
-  const incoming = normalizeRef(url.searchParams.get("ref"));
+  const raw = url.searchParams.get("ref");
+  const incoming = normalizeRef(raw);
   let code = readStoredRef();
+
+  if (raw !== null) {
+    track("referral_visit", {
+      referral_code: incoming ?? raw.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 30),
+      referral_valid: incoming !== null,
+      referral_first: !code && incoming !== null,
+    });
+  }
 
   if (!code && incoming) {
     code = incoming;

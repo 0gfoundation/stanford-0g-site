@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 import Link from "next/link";
 import { Plus, Minus } from "lucide-react";
 
@@ -125,7 +126,10 @@ function FAQItem({
       className="glass rounded-2xl overflow-hidden"
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          if (!isOpen) track("faq_open", { question: item.question });
+          setIsOpen(!isOpen);
+        }}
         className="w-full flex items-center justify-between p-6 text-left hover:bg-brand-purple-500/5 transition-colors"
       >
         <span className="text-lg font-semibold text-gray-900 pr-4">
