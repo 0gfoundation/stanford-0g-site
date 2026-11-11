@@ -32,17 +32,17 @@ export default function ProgramOverview() {
               The Premier <span className="text-gradient">AI Accelerator</span>
             </h2>
             <p className="text-gray-600 text-lg mb-5 leading-relaxed">
-              xBuilders, led by pioneers from Stanford, partners with 0G to bring
+              xBuilders, led by pioneers from Silicon Valley, partners with 0G to bring
               you an intensive program designed to help founders build, launch,
               and scale projects with the 0G AI infrastructure. Get hands-on support
               from industry experts and access to a world-class network,
-              including the Stanford community.
+              including the Silicon Valley community.
             </p>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
               Cohort 2 will be a three-month accelerator for up to 10 startups
               building on the 0G AI infrastructure, running December through
               February, and closing with an in-person
-              graduation on Stanford campus.
+              graduation in Palo Alto.
             </p>
 
             {/* Partner Logos */}

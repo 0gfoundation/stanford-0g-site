@@ -137,11 +137,6 @@ export const APPLY_CRITERIA = [
 
 export const DEMO_DAY_RECORDING_URL = "https://youtu.be/cGtOOdPvSaQ";
 
-export const COHORT1_HIGHLIGHT_VIDEO = {
-  src: "/cohort1/apollo-cohort-1.mp4",
-  poster: "/cohort1/apollo-cohort-1-poster.jpg",
-};
-
 export const COHORT1_STATS = [
   { value: "220+", label: "Applications for 10 spots" },
   {
@@ -187,14 +182,14 @@ export const COHORT1_TESTIMONIALS = [
 
 export const COHORT1_PHOTOS = [
   {
-    src: "/cohort1/0P7A2967.jpg",
+    src: "/cohort1/group-photo.jpg",
     alt: "Cohort 1 group photo at Stanford University",
     caption: "Cohort group photo",
   },
   {
     src: "/cohort1/20260729-apollo-219.jpg",
     alt: "Graduation day session at Stanford",
-    caption: "Stanford ceremony",
+    caption: "Graduation ceremony",
   },
   {
     src: "/cohort1/20260729-apollo-769.jpg",

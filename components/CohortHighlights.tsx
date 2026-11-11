@@ -7,7 +7,6 @@ import { Play } from "lucide-react";
 import {
   COHORT1_STATS,
   COHORT1_PHOTOS,
-  COHORT1_HIGHLIGHT_VIDEO,
   DEMO_DAY_RECORDING_URL,
 } from "@/lib/constants";
 import TestimonialCarousel from "./TestimonialCarousel";
@@ -69,25 +68,6 @@ export default function CohortHighlights() {
         >
           Apollo alumni are actively building on 0G AI infrastructure.
         </motion.p>
-
-        {/* Cohort 1 highlight video */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="max-w-5xl mx-auto mb-6 md:mb-8 rounded-3xl overflow-hidden shadow-2xl shadow-brand-purple-500/20 border border-brand-purple-200/30 bg-gray-900"
-        >
-          <video
-            controls
-            playsInline
-            preload="metadata"
-            poster={COHORT1_HIGHLIGHT_VIDEO.poster}
-            className="w-full h-auto block aspect-video"
-          >
-            <source src={COHORT1_HIGHLIGHT_VIDEO.src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </motion.div>
 
         {/* Demo Day recording + photos */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-20">

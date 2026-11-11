@@ -277,7 +277,7 @@ export default function Mentors() {
             Meet Your <span className="text-gradient">Mentors</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Learn from industry leaders and Stanford veterans who will guide you
+            Learn from industry leaders and Silicon Valley veterans who will guide you
             through your journey
           </p>
         </motion.div>
