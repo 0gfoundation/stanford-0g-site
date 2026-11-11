@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
+import { track } from "@/lib/analytics";
 import {
   ArrowUpRight,
   Bot,
@@ -319,6 +320,7 @@ export default function CaseStudies() {
   const select = (i: number, focus = false) => {
     const next = (i + CASE_STUDIES.length) % CASE_STUDIES.length;
     setActive(next);
+    track("case_study_view", { case_study: CASE_STUDIES[next].name });
     const tab = tabRefs.current[next];
     tab?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     if (focus) tab?.focus();

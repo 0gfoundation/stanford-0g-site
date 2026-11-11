@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import AttributionTracker from "@/components/AttributionTracker";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,14 +53,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* Google tag (GTM-5FGP4MT5), placed first in <head> as Google asks */}
-        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5FGP4MT5" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());",
-          }}
-        />
+        {/* Google tag (GTM-5FGP4MT5 → GA4), placed first in <head> as Google asks.
+            Production builds only, so local development doesn't count as traffic. */}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5FGP4MT5" />
+            <script
+              dangerouslySetInnerHTML={{
+                __html:
+                  "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());",
+              }}
+            />
+          </>
+        )}
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="font-sans antialiased">
@@ -98,6 +104,7 @@ export default function RootLayout({
           }}
         />
         <AttributionTracker />
+        <Analytics />
         {children}
       </body>
     </html>

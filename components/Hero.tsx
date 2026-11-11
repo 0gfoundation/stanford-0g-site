@@ -9,7 +9,7 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const scrollIndicatorOpacity = useTransform(scrollY, [0, 100], [1, 0]);
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       {/* Animated Background Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

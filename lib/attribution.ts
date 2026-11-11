@@ -17,7 +17,8 @@ export type Attribution = Partial<
   Record<(typeof ATTRIBUTION_PARAMS)[number] | "ref" | "referrer" | "landing_page", string>
 >;
 
-function readStored(): Attribution {
+/** Attribution captured so far this session (first touch). */
+export function getAttribution(): Attribution {
   try {
     const raw = window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY);
     return raw ? (JSON.parse(raw) as Attribution) : {};
@@ -37,7 +38,7 @@ function isExternalReferrer(referrer: string): boolean {
 
 /** Capture attribution from the current URL and referrer. First touch wins. */
 export function captureAttribution(): Attribution {
-  const stored = readStored();
+  const stored = getAttribution();
   const params = new URLSearchParams(window.location.search);
   const next: Attribution = { ...stored };
 
