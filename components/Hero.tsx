@@ -64,12 +64,12 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p className="text-5xl md:text-7xl mb-6 mx-auto text-gradient font-bold">
-            Powered by 0G and Stanford Builders
+            Powered by 0G and Silicon&nbsp;Valley Builders
           </p>
 
           {/* Description */}
           <p className="text-base md:text-lg text-gray-500 mb-10 max-w-3xl mx-auto leading-relaxed italic">
-            0G Apollo is an exclusive builder program led by Stanford veterans,
+            0G Apollo is an exclusive builder program led by Silicon Valley veterans,
             for founders building on the leading trust layer for AI. If owning
             your tech and cost structure matters, you utilize open source
             models, and are building for enterprise grade privacy and
