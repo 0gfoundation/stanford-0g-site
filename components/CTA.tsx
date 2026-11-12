@@ -49,7 +49,7 @@ export default function CTA() {
             Ready to <span className="text-gradient">Accelerate</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            Cohort 2 applications close November 11. Teams are accepted on a
+            Cohort 2 applications close November 15. Teams are accepted on a
             rolling basis, so the earlier you apply, the better.
           </p>
 

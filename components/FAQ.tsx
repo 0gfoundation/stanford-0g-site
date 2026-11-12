@@ -61,7 +61,7 @@ const FAQ_DATA: FAQEntry[] = [
   {
     question: "What is the application deadline?",
     answer:
-      "Applications close on November 11, 2026. Applicants are reviewed and accepted on a rolling basis, so apply as early as you can.",
+      "Applications close on November 15, 2026. Applicants are reviewed and accepted on a rolling basis, so apply as early as you can.",
   },
   {
     question: "When does Cohort 2 start?",
@@ -101,7 +101,7 @@ function ApplicationsOpenAnswer() {
       >
         Apply to Cohort 2
       </Link>{" "}
-      before November 11, 2026. Teams are reviewed and accepted on a rolling
+      before November 15, 2026. Teams are reviewed and accepted on a rolling
       basis, so early applications have the best chance.
     </>
   );
