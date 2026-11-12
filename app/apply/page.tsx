@@ -40,7 +40,7 @@ export default function ApplyPage() {
           Apply to Apollo <span className="text-gradient">Cohort II</span>
         </h1>
         <p className="text-gray-600 mb-8">
-          Applications close November 11, 2026. Teams are accepted on a rolling
+          Applications close November 15, 2026. Teams are accepted on a rolling
           basis. Questions?{" "}
           <a
             href="mailto:apollo@0g.ai"
