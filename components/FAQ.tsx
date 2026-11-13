@@ -38,7 +38,7 @@ const FAQ_DATA: FAQEntry[] = [
         AI, innovation, and software technologies. Accelerator programming is
         based on Stanford University’s startup methodologies and courses, and
         the extensive experience of the team as founders, operators, and
-        investors running accelerators for SBA, Google for Startups, StartX,
+        investors running accelerators for SBA, Google for Startups,
         and Cardinal Ventures.
       </>
     ),
