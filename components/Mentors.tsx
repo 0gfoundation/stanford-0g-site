@@ -231,6 +231,14 @@ const mentors: Mentor[] = [
       linkedin: "https://www.linkedin.com/in/alimaaz/",
     },
   },
+  {
+    name: "Sheena Kohli",
+    position: "Strategic Advisor at Alph.ai · Investor Relations at NodeOps · CA, 16+ Yrs · Ex-EY & Ex-Bitrue Global BD Head",
+    image: "/sheena-kohli.jpeg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/sheenakohli13/",
+    },
+  },
 ];
 
 export default function Mentors() {
